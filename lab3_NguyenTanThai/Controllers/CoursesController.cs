@@ -1,0 +1,50 @@
+﻿using lab3_NguyenTanThai.Models;
+using lab3_NguyenTanThai.ViewModels;
+using Microsoft.AspNet.Identity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace lab3_NguyenTanThai.Controllers
+{
+    public class CoursesController : Controller
+    {
+        private ApplicationDbContext _dbContext;
+
+        // GET: Courses
+       
+        public CoursesController()
+        {
+            _dbContext = new ApplicationDbContext();
+        }
+        [Authorize]
+        public ActionResult Create()
+        {
+            var viewModel = new CourseViewModel
+            {
+                Categories = _dbContext.Categories.ToList()
+            };
+            return View(viewModel);
+        }
+        
+        [HttpPost]
+        public ActionResult Create(CourseViewModel viewModel)
+        {
+            var course = new Course
+            {
+                LecturerId = User.Identity.GetUserId(),
+                DataTime = viewModel.GetDateTime(),
+                CaretoryId = viewModel.Category,
+                Place = viewModel.Place
+            };
+            _dbContext.Courses.Add(course);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+
+            
+        }
+    }
+}
