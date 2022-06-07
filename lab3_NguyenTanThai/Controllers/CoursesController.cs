@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 
 namespace lab3_NguyenTanThai.Controllers
@@ -20,6 +21,7 @@ namespace lab3_NguyenTanThai.Controllers
             _dbContext = new ApplicationDbContext();
         }
         [Authorize]
+        
         public ActionResult Create()
         {
             var viewModel = new CourseViewModel
@@ -28,10 +30,16 @@ namespace lab3_NguyenTanThai.Controllers
             };
             return View(viewModel);
         }
-        
+        [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CourseViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Categories = _dbContext.Categories.ToList();
+                return View("Create", viewModel);
+            }
             var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
