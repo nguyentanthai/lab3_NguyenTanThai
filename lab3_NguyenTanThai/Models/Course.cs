@@ -20,7 +20,7 @@ namespace lab3_NguyenTanThai.Models
         public Category Category { get; set; }
         [Required]
         public byte CaretoryId { get; set; }
-
+        public DateTime DateTime { get; internal set; }
     }
    
 }
