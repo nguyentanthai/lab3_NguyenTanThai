@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace LabBigSchool.Controllers
+namespace lab3_NguyenTanThai.Controllers
 {
     public class CoursesController : Controller
     {
