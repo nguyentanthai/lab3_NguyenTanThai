@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Web;
-
 namespace lab3_NguyenTanThai.ViewModels
 {
     public class FutureDate : ValidationAttribute

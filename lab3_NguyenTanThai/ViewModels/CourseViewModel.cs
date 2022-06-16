@@ -15,7 +15,7 @@ namespace lab3_NguyenTanThai.ViewModels
         [FutureDate]
         public string Date { get; set; }
         [Required]
-        [FutureDate]
+        [ValidTime]
         public string Time { get; set; }
         public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }

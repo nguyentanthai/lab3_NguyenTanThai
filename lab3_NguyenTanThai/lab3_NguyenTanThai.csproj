@@ -195,11 +195,16 @@
     <Compile Include="Migrations\202206100133303_AddNameColumnToApplicationUser1.Designer.cs">
       <DependentUpon>202206100133303_AddNameColumnToApplicationUser1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206161222485_AddNameColumnToApplicationUser2.cs" />
+    <Compile Include="Migrations\202206161222485_AddNameColumnToApplicationUser2.Designer.cs">
+      <DependentUpon>202206161222485_AddNameColumnToApplicationUser2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\IdentityDbContext.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -267,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ApplicationUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206100133303_AddNameColumnToApplicationUser1.resx">
       <DependentUpon>202206100133303_AddNameColumnToApplicationUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206161222485_AddNameColumnToApplicationUser2.resx">
+      <DependentUpon>202206161222485_AddNameColumnToApplicationUser2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -5,21 +5,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.ModelBinding;
 using System.Web.Mvc;
 
-namespace lab3_NguyenTanThai.Controllers
+namespace LabBigSchool.Controllers
 {
     public class CoursesController : Controller
     {
-        private ApplicationDbContext _dbContext;
-
-        // GET: Courses
-       
+        private readonly ApplicationDbContext _dbContext;
         public CoursesController()
         {
             _dbContext = new ApplicationDbContext();
         }
+        // GET: Courses
         [Authorize]
         public ActionResult Create()
         {
@@ -29,8 +26,6 @@ namespace lab3_NguyenTanThai.Controllers
             };
             return View(viewModel);
         }
-
-
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -44,7 +39,7 @@ namespace lab3_NguyenTanThai.Controllers
             var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
-                DataTime = viewModel.GetDateTime(),
+                DateTime = viewModel.GetDateTime(),
                 CaretoryId = viewModel.Category,
                 Place = viewModel.Place
             };
@@ -52,8 +47,6 @@ namespace lab3_NguyenTanThai.Controllers
             _dbContext.SaveChanges();
 
             return RedirectToAction("Index", "Home");
-
-            
         }
     }
 }

@@ -11,6 +11,7 @@ namespace lab3_NguyenTanThai.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext _dbContext;
+
         public HomeController()
         {
             _dbContext = new ApplicationDbContext();
@@ -23,6 +24,7 @@ namespace lab3_NguyenTanThai.Controllers
                 .Where(c => c.DateTime > DateTime.Now);
             return View(upcommingCourses);
         }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -36,5 +38,6 @@ namespace lab3_NguyenTanThai.Controllers
 
             return View();
         }
+
     }
 }
