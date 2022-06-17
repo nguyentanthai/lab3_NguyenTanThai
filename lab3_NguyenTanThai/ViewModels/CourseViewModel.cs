@@ -17,6 +17,7 @@ namespace lab3_NguyenTanThai.ViewModels
         [Required]
         [ValidTime]
         public string Time { get; set; }
+        [Required]
         public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
         public DateTime GetDateTime()

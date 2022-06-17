@@ -40,11 +40,13 @@ namespace lab3_NguyenTanThai.Controllers
             {
                 LecturerId = User.Identity.GetUserId(),
                 DateTime = viewModel.GetDateTime(),
-                CaretoryId = viewModel.Category,
+                CategoryId = viewModel.Category,
                 Place = viewModel.Place
             };
+           
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
+
 
             return RedirectToAction("Index", "Home");
         }
